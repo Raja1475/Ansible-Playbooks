@@ -1,0 +1,13 @@
+- name: printing variables
+  hosts: mongodb
+  become: yes
+  vars:
+    NAME: kUMARA
+    JOB: DevOps
+  tasks:
+  - name: print hello world
+    ansible.builtin.debug:
+      msg: "hello world"
+  - name: printing variables
+    ansible.builtin.debug:
+      msg: "my name is {{NAME}}, my job role is {{JOB}}"
