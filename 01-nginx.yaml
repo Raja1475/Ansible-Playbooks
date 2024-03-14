@@ -1,5 +1,5 @@
 - name: install and start nginx
-  hosts: 10.0.0.0
+  hosts: mongodb
   become: yes
   tasks:
   - name: install nginx
