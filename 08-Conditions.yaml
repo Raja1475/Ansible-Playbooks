@@ -8,14 +8,15 @@
   - name: print the output
     ansible.builtin.debug:
       msg: "user name is {{output}}"
+  - name: print the user name
+    ansible.builtin.command: id Raja
+    register: output1
+    ignore_errors: true
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "user name is {{output1}}"
   - name: create user with when cindition
     become: yes
     ansible.builtin.user:
       name: Raja
     when: output1.rc != 0
-  - name: print the user name
-    ansible.builtin.command: id Raja
-    register: output1
-  - name: print the output
-    ansible.builtin.debug:
-      msg: "user name is {{output1}}"
