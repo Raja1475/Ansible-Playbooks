@@ -7,3 +7,6 @@
     loop:
       - raja
       - pooja
+  - name: love
+    ansible.builtin.debug:
+      msg: "{{item}} loves {{item}}"
