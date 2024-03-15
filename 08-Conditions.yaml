@@ -11,7 +11,7 @@
   - name: create user with when cindition
     become: yes
     ansible.builtin.user:
-      name: Kumara
+      name: Raja
     when: output.rc != 0
     register: output1
   - name: print the output
