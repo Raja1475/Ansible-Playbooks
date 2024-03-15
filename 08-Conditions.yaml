@@ -12,7 +12,7 @@
     become: yes
     ansible.builtin.user:
       name: Raja
-    when: output.rc != 0
+    when: output1.rc != 0
   - name: print the user name
     ansible.builtin.command: id Raja
     register: output1
