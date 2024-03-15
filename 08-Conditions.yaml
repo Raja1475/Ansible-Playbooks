@@ -13,6 +13,8 @@
     ansible.builtin.user:
       name: Raja
     when: output.rc != 0
+  - name: print the user name
+    ansible.builtin.command: id Raja
     register: output1
   - name: print the output
     ansible.builtin.debug:
