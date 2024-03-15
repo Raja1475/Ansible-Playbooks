@@ -1,0 +1,11 @@
+- name: variables from prompt
+  hosts: mongodb
+  vars_prompt:
+    - name: NAME
+      prompt: "what is your name?"
+    - name: JOB
+      prompt: "what is your job role?"
+  tasks:
+  - name: print values from prompt
+    ansible.builtin.debug:
+      msg: "my name is {{NAME}}, job is {{JOB}}"
