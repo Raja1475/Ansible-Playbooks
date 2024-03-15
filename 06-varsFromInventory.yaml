@@ -1,0 +1,6 @@
+- name: vars from inventory
+  hosts: mongodb
+  tasks:
+    - name: varible from inventory
+      ansible.builtin.debug:
+        msg: "server name is {{ERVER_NAME}}"
