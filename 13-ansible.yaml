@@ -1,0 +1,13 @@
+
+- name: Update system time on all servers
+  hosts: localhost
+  become: true  # Requires root privileges
+
+  tasks:
+    - name: Synchronize system time with time server
+      synchronize:
+        time: "{{ time_server }}"  # Variable for time server address
+
+  vars:
+    time_server: pool.ntp.org  # Default time server
+

@@ -6,6 +6,7 @@
     ansible.builtin.yum:
       name: "{{item.name}}"
       state: "{{item.state}}"
+  #list of map
     loop:
       - {name: 'nginx', state: 'installed'}
       - {name: 'postfix', state: 'absent'}
