@@ -8,7 +8,7 @@
     ansible.builtin.debug:
       msg: "user name is {{output}}"
   - name: create user with when cindition
+    become: yes
     ansible.builtin.user:
       name: Kumara
     when: output.rc != 0
-    
