@@ -5,4 +5,8 @@
     ansible.builtin.command: id Chinna
     register: output
     ignore_errors: true
-  
+  - name: creating user
+    become: yes
+    ansible.builtin.user:
+      name: Chinna
+    when: output.rc != 0
