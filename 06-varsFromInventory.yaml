@@ -3,4 +3,4 @@
   tasks:
     - name: varible from inventory
       ansible.builtin.debug:
-        msg: "server name is {{ERVER_NAME}}"
+        msg: "server name is {{SERVER_NAME}}"
