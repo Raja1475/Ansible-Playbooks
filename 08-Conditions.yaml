@@ -4,6 +4,7 @@
   - name: print the user name
     ansible.builtin.command: id Kumara
     register: output
+    ignore_errors: true
   - name: print the output
     ansible.builtin.debug:
       msg: "user name is {{output}}"
