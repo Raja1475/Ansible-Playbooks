@@ -1,2 +1,5 @@
 [mongodb]
 172.31.29.72
+
+[mongodb:vars]
+SERVER_NAME=mongodb_server
