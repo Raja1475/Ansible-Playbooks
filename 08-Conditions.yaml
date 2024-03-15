@@ -2,7 +2,7 @@
   hosts: localhost
   tasks:
   - name: print the user name
-    ansible.builtin.command: id centos
+    ansible.builtin.command: id Kumara
     register: output
   - name: print the output
     ansible.builtin.debug:
