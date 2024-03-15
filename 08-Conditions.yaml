@@ -1,0 +1,9 @@
+- name: checking user exit or not
+  hosts: localhost
+  tasks:
+  - name: print the user name
+    ansible.builtin.command: id centos
+    register: output
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "user name is {{output}}"
