@@ -45,8 +45,20 @@
         curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
         cd /app && unzip /tmp/catalogue.zip
 
-  - name:
+  - name: install dependencies
     ansible.builtin.shell:
       cmd: |
         cd /app
         npm install 
+
+  - name: catalogue service file
+    ansible.builtin.copy:
+      src: catalogue.service
+      dest: /etc/systemd/system/catalogue.service
+
+  - name: start the catalogue service
+    ansible.builtin.systemd:
+      daemon_reexec: yes
+      name: catalogue
+      state: started
+      enabled: yes
