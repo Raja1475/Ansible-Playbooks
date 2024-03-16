@@ -29,7 +29,6 @@
     when: output1.stat.exists == false
   - name: download and unzip
     ansible.builtin.shell:
-      cmd:
-        - curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
-        - cd /app 
-        - unzip /tmp/catalogue.zip
+      cmd: |
+        curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+        cd /app && unzip /tmp/catalogue.zip
