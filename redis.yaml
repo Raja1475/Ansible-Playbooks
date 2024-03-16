@@ -8,7 +8,7 @@
       state: installed
   - name: redis module
     ansible.builtin.command: yum module enable redis:remi-6.2 -y
-  - name: install redis
+  - name: install redis DB
       ansible.builtin.yum:
         name: redis
         state: installed
