@@ -15,7 +15,7 @@
     register: output
   - name: printing output
     ansible.builtin.debug:
-      msg: {{output}}
+      msg: "{{output}}"
   # - name: creating roboshop user
   #   ansible.builtin.user:
   #     name: roboshop
