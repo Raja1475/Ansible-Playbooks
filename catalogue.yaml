@@ -79,7 +79,7 @@
       state: installed
 
   - name: loading scama
-    ansible.builtin.command: mongo --host 172.31.29.72 </app/schema/catalogue.js
+    ansible.builtin.command: mongo --host 172.31.29.72 < /app/schema/catalogue.js
 
   - name: restart catalogue
     ansible.builtin.service:
