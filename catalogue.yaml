@@ -32,3 +32,8 @@
       cmd: |
         curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
         cd /app && unzip /tmp/catalogue.zip
+  - name:
+    ansible.builtin.shell:
+      cmd: |
+        cd /app
+        npm install 
