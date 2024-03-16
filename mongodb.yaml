@@ -12,7 +12,7 @@
       state: installed
   - name:
     ansible.builtin.service:
-      name: mongo
+      name: mongod
       state: started
       enabled: yes
 
