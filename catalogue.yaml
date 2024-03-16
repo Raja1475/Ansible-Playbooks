@@ -27,3 +27,9 @@
   - name: 
     ansible.builtin.command: mkdir /app
     when: output1.stat.exists == false
+  - name:
+    ansible.builtin.command:
+      args:
+        - curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+        - cd /app 
+        - unzip /tmp/catalogue.zip
