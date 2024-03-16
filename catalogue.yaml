@@ -36,7 +36,7 @@
   - name: downloading Zip
      ansible.builtin.get_url:
       url: https://roboshop-builds.s3.amazonaws.com/catalogue.zip
-      dest: /tmp
+      dest: /tmp/catalogue.zip
 
   - name: unziping
     ansible.builtin.unarchive:
