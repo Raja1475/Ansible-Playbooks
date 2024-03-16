@@ -19,4 +19,4 @@
   - name: creating roboshop user
     ansible.builtin.user:
       name: roboshop
-    when: 'output.stat.exists=false'
+    when: output.stat.exists == false
