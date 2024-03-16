@@ -60,10 +60,29 @@
     ansible.builtin.copy:
       src: catalogue.service
       dest: /etc/systemd/system/catalogue.service
-
-  - name: start the catalogue service
+  
+  - name: demon reload
     ansible.builtin.systemd:
-      daemon_reexec: yes
+      daemon_reload: true
       name: catalogue
       state: started
       enabled: yes
+  
+  - name: copy mongo repo
+    ansible.builtin.copy:
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
+  
+  - name: install mongo shell
+    ansible.builtin.yum:
+      name: mongodb-org-shell
+      state: installed
+
+  - name: loading scama
+    ansible.builtin.command: mongo --host 172.31.29.72 </app/schema/catalogue.js
+
+  - name: restart catalogue
+    ansible.builtin.service:
+      name: catalogue
+      state: restarted
+ 
