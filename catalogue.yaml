@@ -9,34 +9,42 @@
     ansible.builtin.yum:
       name: nodejs 
       state: installed
+
   - name: check roboshop user exist or not
     ansible.builtin.stat:
       path: /home/roboshop
     register: output
+
   - name: printing output
     ansible.builtin.debug:
       msg: "{{output}}"
+
   - name: creating roboshop user
     ansible.builtin.user:
       name: roboshop
     when: output.stat.exists == false
-  - name: directory exist
-    ansible.builtin.stat:
-      path: /app
-    register: output1
-  - name: 
-    ansible.builtin.command: mkdir /app
-    when: output1.stat.exists == false
+
   - name: delete Old files
     ansible.builtin.file:
       path: /app
       state: absent
     ignore_errors: yes
+
+  - name: directory exist
+    ansible.builtin.stat:
+      path: /app
+    register: output1
+
+  - name: 
+    ansible.builtin.command: mkdir /app
+    when: output1.stat.exists == false
+ 
   - name: download new files and unzip
     ansible.builtin.shell:
       cmd: |
         curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
         cd /app && unzip /tmp/catalogue.zip
+
   - name:
     ansible.builtin.shell:
       cmd: |
