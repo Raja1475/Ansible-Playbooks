@@ -20,3 +20,10 @@
     ansible.builtin.user:
       name: roboshop
     when: output.stat.exists == false
+  - name: directory exist
+    ansible.builtin.stat:
+      path: /app
+    register: output1
+  - name: 
+    ansible.builtin.command: mkdir /app
+    when: output1.stat.exists == false
