@@ -1,0 +1,22 @@
+- name: deploying catalogue component
+  hosts: catalogue
+  become: yes
+  tasks:
+  - name: nodejs env
+    ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+  - name: install nodejs
+    ansible.builtin.yum:
+      name: nodejs 
+      state: installed
+  - name: check roboshop user exist or not
+    ansible.builtin.stat:
+      path: /home/roboshop
+    register: output
+  - name: printing output
+    ansible.builtin.debug:
+      msg: {{output}}
+  # - name: creating roboshop user
+  #   ansible.builtin.user:
+  #     name: roboshop
+  #   when: 
